@@ -6,15 +6,15 @@ This is an example PowerShell version 7 script that creates/deploys a single or 
 The script is idempotent and can be re-executed without any known issues.
 
 ### Disclaimer
-The script and associated components are provided as-is and are intended to provide an example of utilizing the PowerShell v7 and the Invoke-RestMethod cmdlet. Fully test in a non-production enviornment before implementing. Feel free to utilize/modify any portion of code for your specific needs.
+The script and associated components are provided as-is and are intended to provide an example of utilizing PowerShell version 7 and the Invoke-RestMethod cmdlet. Fully test in a non-production enviornment before implementing. Feel free to utilize/modify any portion of code for your specific needs.
 
 ### Requirements
 * ONTAP Select 9.7 or later
-* PowerShell v7.x
+* PowerShell 7.x
 * vSphere 6.5 or later with ESXi hosts managed by vCenter
 
 ### NOTES
-**ONTAP 9.7 is unsupported on vSphere 7.0 - but it'll still install with a warning event in Deploy - ONTAP Select 9.8 will have support for vSphere 7.x**
+*ONTAP 9.7 is unsupported on vSphere 7.0 - but it'll still install with a warning event in Deploy - ONTAP Select 9.8 will have support for vSphere 7.x*
 
 ### Dev/Test Environment
 * Windows 2019 Server (jumpbox used to execute scripts)
@@ -23,7 +23,7 @@ The script and associated components are provided as-is and are intended to prov
 * VMware vSphere 6.7 and 7.0
 
 ### Usage
-* Example: **../clustercreate.ps1 -Configfile singlenode**
+* Example: ** PS C:\Scripts > ../clustercreate.ps1 -Configfile singlenode**
 * Implement password security in compliance with the environment and best practices. If passwords are not included in the .ini file, the script will prompt for them.
 * Sample configuration files are provided for 1 or 2 node Select clusters
 
