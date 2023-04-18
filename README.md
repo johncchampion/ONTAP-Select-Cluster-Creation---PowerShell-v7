@@ -19,14 +19,14 @@ The script and associated components are provided as-is and are intended to prov
 
 ### Dev/Test Environment
 * Windows 2019 Server (jumpbox used to execute scripts)
-* PowerShell version 7.1
+* PowerShell version 7.2
 * ONTAP Select 9.12.1
 * VMware vSphere 6.7 and 7.0
 
 ### Usage
 * Example: _PS C:\Scripts > ./otsclustercreate.ps1 -Configfile singlenode_
 * Implement password security in compliance with the environment and best practices. If passwords are not included in the .ini file, the script will prompt for them.
-* Sample configuration files are provided for 1 or 2 node Select clusters
+* Sample configuration files are provided for 1 and 2 node Select clusters
 
 ### Workflow Tasks
 1. Verify Settings and Environment
