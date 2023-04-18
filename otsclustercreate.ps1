@@ -174,7 +174,7 @@ foreach ( $nn IN $node_names_list ) {
     }
 }
 foreach ( $sp IN $storage_pools_list ) {
-    If ( $sp.Length -lt 1 ) { 
+    if ( $sp.Length -lt 1 ) { 
         $error_msgs += " storage_pool is REQUIRED" 
     }
 }
@@ -324,22 +324,18 @@ if ( $result.num_records -ne 0 ) {
 # -------------------------------------------------------------------------------
 # Add vCenter Credential
 # -------------------------------------------------------------------------------
-
 $inc++
 if ( $inc -lt 10 ) { Write-Host " " -NoNewline }
 Write-Host -ForegroundColor Gray " $inc. " -NoNewline
 Write-Host -ForegroundColor Cyan "Add vCenter Credential `t" -NoNewline
 Write-Host -ForegroundColor White $vcenter_login
-
 $url = $deploy_url + "/security/credentials?username=$vcenter_login" + "&" + "hostname=$vcenter_name"
-
 try {
     $result = Invoke-RestMethod -Method 'GET' -Uri $url -Credential $cred -SkipCertificateCheck -ErrorAction Stop
 } catch {
     Write-Host -ForegroundColor Red "`n $($_.Exception.Response)`n"
     Stop-Script -flag 1
 }
-
 if ( $result.num_records -eq 0 ) {
     $body = @{
         hostname = "$vcenter_name"
@@ -360,7 +356,6 @@ if ( $result.num_records -eq 0 ) {
 # -------------------------------------------------------------------------------
 # Register ESXi Hosts
 # -------------------------------------------------------------------------------
-
 foreach ( $esxi_host In $esxi_hosts_list ) {
     $inc++
     if ( $inc -lt 10 ) { Write-Host " " -NoNewline }
@@ -638,7 +633,7 @@ for ( $i=0; $i -lt $nbr_nodes; $i++ ) {
 # -------------------------------------------------------------------------------
 # Configure Storage Pools
 # -------------------------------------------------------------------------------
-For ( $i=0; $i -lt $nbr_nodes; $i++ ) {
+for ( $i=0; $i -lt $nbr_nodes; $i++ ) {
     $n_name = $node_names_list[$i]
     $n_id = $node_ids_list[$i]
     $storage_pool = $storage_pools_list[$i]
